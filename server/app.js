@@ -12,10 +12,13 @@ const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 
+// CORS Configuration
 app.use(
   cors({
-    origin:
+    origin: [
       "https://team-task-management-system-production-08f5.up.railway.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
