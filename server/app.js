@@ -12,10 +12,8 @@ const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 
-// VERY IMPORTANT
+// Enable CORS
 app.use(cors());
-
-app.options("*", cors());
 
 app.use(express.json());
 
