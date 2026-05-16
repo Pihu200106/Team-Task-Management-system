@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "npx prisma migrate deploy && node app.js",
-    "dev": "nodemon app.js"
+  "start": "node app.js",
+  "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
