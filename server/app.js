@@ -12,16 +12,10 @@ const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 
-// CORS Configuration
-app.use(
-  cors({
-    origin: [
-      "https://team-task-management-system-production-08f5.up.railway.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// VERY IMPORTANT
+app.use(cors());
+
+app.options("*", cors());
 
 app.use(express.json());
 
@@ -37,7 +31,7 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-// Protected Route Test
+// Protected Route
 app.get("/protected", authMiddleware, (req, res) => {
   res.json({
     message: "Protected route working",
@@ -45,7 +39,6 @@ app.get("/protected", authMiddleware, (req, res) => {
   });
 });
 
-// Railway Port
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
